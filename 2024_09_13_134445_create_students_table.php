@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Student name
-            $table->string('email')->unique(); // Student email, must be unique
-            $table->integer('roll'); // Student roll number
-            $table->integer('reg')->unique(); // Registration number, must be unique
+           $table->string('name', 25)->notNull();
+            $table->string('email', 25)->unique(); // Add unique constraint for email
+            $table->integer('roll')->notNull(); // No auto_increment or primary key for 'roll'
+            $table->string('reg', 20)->notNull();  // No auto_increment or primary key for 'reg'
             $table->timestamps();
         });
     }
